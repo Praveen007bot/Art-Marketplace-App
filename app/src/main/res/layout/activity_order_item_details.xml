@@ -1,0 +1,34 @@
+<!-- activity_order_item_details.xml -->
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Order Item Details"
+        android:id="@+id/above_text"
+        android:textSize="30sp"
+        android:textStyle="bold"
+        android:layout_marginTop="10sp"
+        android:layout_marginStart="10sp"
+        android:textColor="@color/black"/>
+    <TextView
+        android:id="@+id/textViewOrderId"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/above_text"
+        android:textSize="30sp"
+        android:textColor="@color/black"
+        android:layout_marginStart="10sp"
+        android:layout_marginTop="10sp"
+        android:text="Order id"/>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerViewOrderItems"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/textViewOrderId"
+        android:layout_marginTop="20dp"/>
+</RelativeLayout>

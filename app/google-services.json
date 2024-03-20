@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "417105280151",
+    "project_id": "localart-e2495",
+    "storage_bucket": "localart-e2495.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:417105280151:android:276b251c288b77974dfdd2",
+        "android_client_info": {
+          "package_name": "com.example.localart"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBsddQ8dIjgTTVSdtrAGRjLYnCHzKy6Lcc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
