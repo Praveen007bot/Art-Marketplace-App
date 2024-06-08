@@ -10,7 +10,9 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.example.localart.MainActivity;
 import com.example.localart.R;
+import com.example.localart.user.HomeActivity;
 import com.example.localart.user.OrdersActivity;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -18,7 +20,7 @@ import com.google.firebase.auth.FirebaseUser;
 public class ProfileFragment extends Fragment {
 
     private FirebaseAuth mAuth;
-    private TextView usernameTextView, emailTextView, tv_orders;
+    private TextView usernameTextView, emailTextView, tv_orders, tv_signout;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -28,12 +30,20 @@ public class ProfileFragment extends Fragment {
         usernameTextView = view.findViewById(R.id.tv_username);
         emailTextView = view.findViewById(R.id.tv_email);
         tv_orders = view.findViewById(R.id.tv_orders);
+        tv_signout = view.findViewById(R.id.tv_signout);
 
         tv_orders.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(getActivity(), OrdersActivity.class);
                 startActivity(intent);
+            }
+        });
+
+        tv_signout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                signOut();
             }
         });
 
@@ -58,5 +68,16 @@ public class ProfileFragment extends Fragment {
         } else {
             // If the user is not signed in, you may want to redirect to the login screen or handle it accordingly.
         }
+    }
+
+    private void signOut() {
+        mAuth.signOut();
+        // After signing out, redirect the user to the homepage or login screen
+        // For example, you can use Intent to navigate to the homepage activity
+        // Replace HomeActivity.class with your homepage activity
+        Intent intent = new Intent(getActivity(), MainActivity.class);
+        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
+        startActivity(intent);
+        getActivity().finish();  // Close the current activity to prevent going back to it via back button
     }
 }
